@@ -4,8 +4,8 @@ import traceback
 from flask import Flask, request, redirect, render_template, url_for, send_file
 from werkzeug.utils import secure_filename
 
-CONTAINER = "C:\\Users\\XuanQu\\Desktop\\github\\Flask-FileServer\\upload"
-DOWNLOAD_FIEL_DIR = "C:\\Users\\XuanQu\\Desktop\\github\\Flask-FileServer\\file.txt"
+CONTAINER = "file dir path /upload"
+DOWNLOAD_FIEL_DIR = "file dir path /file.txt"
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = CONTAINER
