@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    <title>下载文件</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+</head>
+
+<body  style="background-color: #696969;">
+
+    <h1 style="margin-top: 100px; text-align: center; color: #eeeeee">文件共享平台</h1>
+    <h2 style="text-align: center; color: #eeeeee">文件:</h2>
+    <h3 style="text-align: center; color: #29b811">{{content}}</h3>
+    <div style="text-align: center">
+        <a href="/download?file_name={{content}}" class="btn btn-primary">立即下载</a>
+    </div>
+    <div style="text-align: center; margin-top: 10px">
+        <a href="/" class="btn btn-primary">返回首页</a>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/linkscript.js') }}"></script>
+
+</body>
+</html>
