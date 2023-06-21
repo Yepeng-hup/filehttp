@@ -4,8 +4,11 @@ import traceback
 from flask import Flask, request, redirect, render_template, url_for, send_file
 from werkzeug.utils import secure_filename
 
-CONTAINER = "file dir path /upload"
-DOWNLOAD_FIEL_DIR = "file dir path /file.txt"
+CONTAINER = "C:\\Users\\XuanQu\\Desktop\\github\\Flask-File_server\\upload"
+DOWNLOAD_FIEL_DIR = "C:\\Users\\XuanQu\\Desktop\\github\\Flask-File_server\\file.txt"
+
+# CONTAINER = "file dir path /upload"
+# DOWNLOAD_FIEL_DIR = "file dir path /file.txt"
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = CONTAINER
@@ -80,11 +83,9 @@ def receive_file(file=""):
 
 @app.route('/download', methods=["GET"])
 def download():
-    # 浏览器下载链接: http://ip:port/download?file_name=1.sh&file_dir=test
-    # linux下载链接: curl -# -o 1.txt http://ip:port/download?file_name=1.sh&file_dir=test
+    # 浏览器下载链接: http://ip:port/download?file_name=test.txt
+    # linux下载链接: curl -# -o 1.txt http://ip:port/download?file_name=test.txt
     file_name = request.args.get('file_name')
-    # file_dir = request.args.get('file_dir')
-    # path = app.config["UPLOAD_FOLDER"] + file_dir + '/' + '%s' % file_name
     path = app.config["UPLOAD_FOLDER"] + '/' + '%s' % file_name
     return send_file(path, as_attachment=True)
 
