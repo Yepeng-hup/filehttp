@@ -5,6 +5,7 @@
     <title>文件列表</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{#    <script src="{{ url_for('static', filename='js/linkscript.js') }}"></script>#}
 </head>
 <body style="background-color: #696969;">
     <h1 style="margin-top: 20px; text-align: center; color: #eeeeee">文件列表</h1><br>
@@ -26,6 +27,9 @@
                     <td>{{ v }}</td>
                     <td>
                         <button class="btn btn-danger" onclick="deleteCheckbox()">删除文件</button>
+                        <a href="/download?file_name={{v}}">
+                            <button class="btn btn-success">下载文件</button>
+                        </a>
                     </td>
                 </tr>
             {% endfor %}
@@ -54,6 +58,28 @@
                 }
             }
         }
+
+        {#function downloadFile() {#}
+        {#    var items=document.getElementsByClassName('tag');#}
+        {#    var len=items.length;#}
+        {#    for (var i=len-1; i>=0;i--) {#}
+        {#        var is_checkd = items[i].checked;#}
+        {#        if (is_checkd) {#}
+        {#            var divItems = items[i].parentNode.parentNode;#}
+        {#            var fileListStr = divItems.innerText;#}
+        {#            arr = fileListStr.trim().split("\t");#}
+        {#            $.get(#}
+        {#                {#}
+        {#                    "url": "/download",#}
+        {#                    "data": {#}
+        {#                        "name": arr[1]#}
+        {#                    }#}
+        {#                },#}
+        {##}
+        {#            )#}
+        {#        }#}
+        {#    }#}
+        {# } #}
 
     </script>
 

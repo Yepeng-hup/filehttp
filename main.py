@@ -85,7 +85,7 @@ def receive_file(file=""):
 def download():
     # 浏览器下载链接: http://ip:port/download?file_name=test.txt
     # linux下载链接: curl -# -o 1.txt http://ip:port/download?file_name=test.txt
-    file_name = request.args.get('file_name')
+    file_name = request.args.get("file_name")
     path = app.config["UPLOAD_FOLDER"] + '/' + '%s' % file_name
     return send_file(path, as_attachment=True)
 
